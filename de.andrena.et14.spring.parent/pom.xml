@@ -18,5 +18,7 @@
   <packaging>pom</packaging>
   <modules>
   	<module>../de.andrena.et14.spring.konferenz</module>
+  	<module>../de.andrena.et14.spring.vortraege</module>
+  	<module>../de.andrena.et14.spring.webapp</module>
   </modules>
 </project>
