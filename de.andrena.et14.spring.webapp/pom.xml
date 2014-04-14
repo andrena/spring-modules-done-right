@@ -8,4 +8,13 @@
 		<relativePath>../de.andrena.et14.spring.parent</relativePath>
 	</parent>
 	<artifactId>de.andrena.et14.spring.webapp</artifactId>
+	<packaging>war</packaging>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>
