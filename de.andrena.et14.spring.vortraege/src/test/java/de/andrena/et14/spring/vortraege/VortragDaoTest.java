@@ -1,4 +1,4 @@
-package de.andrena.et14.spring.konferenz;
+package de.andrena.et14.spring.vortraege;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
@@ -14,24 +14,35 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import de.andrena.et14.spring.konferenz.KonferenzDao;
+import de.andrena.et14.spring.konferenz.KonferenzEntity;
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/META-INF/spring-daotest-konferenz-config.xml" })
+@ContextConfiguration(locations = { "/META-INF/spring-daotest-vortraege-config.xml" })
 @Transactional
-public class KonferenzDaoTest {
+public class VortragDaoTest {
 	@PersistenceContext
 	private EntityManager entityManager;
 	@Inject
 	private KonferenzDao konferenzDao;
+	@Inject
+	private VortragDao vortragDao;
 
 	@Test
-	public void konferenzLaesstSichPersistieren() {
+	public void vortragLaesstSichPersistieren() {
 		KonferenzEntity konferenz = new KonferenzEntity();
 		konferenzDao.persist(konferenz);
+
+		VortragEntity vortrag = new VortragEntity();
+		vortrag.setKonferenz(konferenz);
+		vortragDao.persist(vortrag);
 		entityManager.flush();
 		entityManager.clear();
 
-		KonferenzEntity persistedKonferenz = konferenzDao.findById(konferenz
-				.getId());
-		assertThat(persistedKonferenz, is(notNullValue()));
+		VortragEntity persistedVortrag = vortragDao.findById(vortrag.getId());
+		assertThat(persistedVortrag, is(notNullValue()));
+		assertThat(persistedVortrag.getKonferenz(), is(notNullValue()));
+		assertThat(persistedVortrag.getKonferenz().getId(),
+				is(konferenz.getId()));
 	}
 }

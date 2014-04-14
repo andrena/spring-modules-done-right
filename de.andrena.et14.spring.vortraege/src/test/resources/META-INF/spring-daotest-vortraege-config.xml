@@ -7,4 +7,5 @@
 
 	<import resource="classpath:/META-INF/spring-persistence-config.xml" />
 	<import resource="classpath:/META-INF/spring-konferenz-dao-config.xml" />
+	<import resource="classpath:/META-INF/spring-vortraege-dao-config.xml" />
 </beans>

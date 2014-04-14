@@ -5,9 +5,10 @@
 	<artifactId>de.andrena.et14.spring.parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<hibernate.version>4.1.8.Final</hibernate.version>
-		<spring.version>3.2.1.RELEASE</spring.version>
+		<application.version>0.0.1-SNAPSHOT</application.version>
+		<hibernate.version>4.3.5.Final</hibernate.version>
+		<spring.version>4.0.3.RELEASE</spring.version>
+		<spring-data.version>1.5.1.RELEASE</spring-data.version>
 	</properties>
 	<build>
 		<plugins>
@@ -17,7 +18,7 @@
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
-					<encoding>${project.build.sourceEncoding}</encoding>
+					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -87,5 +88,29 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring-data.version}</version>
+		</dependency>
 	</dependencies>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>de.andrena.et14.spring</groupId>
+				<artifactId>de.andrena.et14.spring.persistenz</artifactId>
+				<version>${application.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.andrena.et14.spring</groupId>
+				<artifactId>de.andrena.et14.spring.konferenz</artifactId>
+				<version>${application.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.andrena.et14.spring</groupId>
+				<artifactId>de.andrena.et14.spring.vortraege</artifactId>
+				<version>${application.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 </project>
