@@ -7,7 +7,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../de.andrena.et14.spring.parent</relativePath>
 	</parent>
-	<artifactId>de.andrena.et14.spring.vortraege</artifactId>
+	<artifactId>de.andrena.et14.spring.vortrag</artifactId>
 	<dependencies>
 		<dependency>
 			<groupId>de.andrena.et14.spring</groupId>
