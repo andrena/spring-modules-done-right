@@ -1,4 +1,0 @@
--Projekte mit parent pom + mindestens ein Modul
--Spring
--Fachdomäne?
-

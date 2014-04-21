@@ -1,0 +1,15 @@
+
+
+JPA:
+-Initialzustand mit zentraler persistence.xml
+-a,b,c
+
+Plugin-Mechanismus:
+-Service mit Validierung o.ä.
+
+Remoting:
+HttpInvoker oder WebServices?
+
+Server: 
+-Jetty oder Tomcat mit web.xml
+-Integrationstests gegen laufenden Server
