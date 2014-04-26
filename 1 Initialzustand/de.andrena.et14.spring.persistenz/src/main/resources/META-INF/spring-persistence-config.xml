@@ -14,7 +14,7 @@
 	</bean>
 
 	<bean id="persistenceUnitManager"
-		class="org.springframework.data.jpa.support.MergingPersistenceUnitManager">
+		class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
 		<property name="persistenceXmlLocations">
 			<list>
 				<value>classpath*:META-INF/persistence.xml</value>
