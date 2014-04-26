@@ -48,5 +48,7 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
 	<tx:annotation-driven transaction-manager="transactionManager" />
 </beans>

@@ -9,6 +9,8 @@
 		<hibernate.version>4.3.5.Final</hibernate.version>
 		<spring.version>4.0.3.RELEASE</spring.version>
 		<spring-data.version>1.5.1.RELEASE</spring-data.version>
+		<jetty.version>9.1.4.v20140401</jetty.version>
+		<slf4j.version>1.7.7</slf4j.version>
 	</properties>
 	<build>
 		<plugins>
@@ -116,9 +118,41 @@
 			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
 			<version>${spring-data.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>${jetty.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-webapp</artifactId>
+			<version>${jetty.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>${slf4j.version}</version>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
@@ -135,7 +169,7 @@
 			</dependency>
 			<dependency>
 				<groupId>de.andrena.et14.spring</groupId>
-				<artifactId>de.andrena.et14.spring.vortraege</artifactId>
+				<artifactId>de.andrena.et14.spring.vortrag</artifactId>
 				<version>${application.version}</version>
 			</dependency>
 		</dependencies>

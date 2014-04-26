@@ -14,4 +14,9 @@ public class KonferenzEntity {
 	public Long getId() {
 		return id;
 	}
+
+	public Konferenz toDto() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
