@@ -10,4 +10,8 @@
 		<property name="konferenzDao" ref="konferenzDao" />
 	</bean>
 
+	<bean name="vortragKonferenzListener" class="de.andrena.et14.spring.vortrag.BenachrichtigeReferentenBeiKonferenzAenderung">
+		<property name="vortragService" ref="vortragService" />
+	</bean>
+
 </beans>

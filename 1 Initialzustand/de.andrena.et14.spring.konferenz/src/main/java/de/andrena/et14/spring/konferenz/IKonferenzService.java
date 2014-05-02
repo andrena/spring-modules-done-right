@@ -11,5 +11,8 @@ public interface IKonferenzService {
 
 	@Transactional
 	Konferenz erstelleKonferenz(Konferenz konferenz);
-	
+
+	@Transactional
+	void aendereKonferenz(Konferenz konferenz);
+
 }
