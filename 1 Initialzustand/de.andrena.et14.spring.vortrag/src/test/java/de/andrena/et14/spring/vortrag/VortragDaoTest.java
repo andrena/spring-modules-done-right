@@ -1,4 +1,4 @@
-package de.andrena.et14.spring.vortraege;
+package de.andrena.et14.spring.vortrag;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
@@ -16,15 +16,20 @@ import org.springframework.transaction.annotation.Transactional;
 
 import de.andrena.et14.spring.konferenz.KonferenzDao;
 import de.andrena.et14.spring.konferenz.KonferenzEntity;
+import de.andrena.et14.spring.vortrag.VortragDao;
+import de.andrena.et14.spring.vortrag.VortragEntity;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/META-INF/spring-daotest-vortraege-config.xml" })
+@ContextConfiguration(locations = { "/META-INF/spring-daotest-vortrag-config.xml" })
 @Transactional
 public class VortragDaoTest {
+	
 	@PersistenceContext
 	private EntityManager entityManager;
+	
 	@Inject
 	private KonferenzDao konferenzDao;
+	
 	@Inject
 	private VortragDao vortragDao;
 

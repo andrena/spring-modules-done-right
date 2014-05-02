@@ -9,4 +9,7 @@ public interface IKonferenzService {
 	@Transactional
 	List<Konferenz> ladeAlleKonferenzen();
 
+	@Transactional
+	Konferenz erstelleKonferenz(Konferenz konferenz);
+	
 }

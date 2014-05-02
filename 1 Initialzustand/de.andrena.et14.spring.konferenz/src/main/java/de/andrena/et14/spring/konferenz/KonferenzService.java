@@ -17,6 +17,14 @@ public class KonferenzService implements IKonferenzService {
 		return result;
 	}
 
+	@Override
+	public Konferenz erstelleKonferenz(Konferenz konferenz) {
+		KonferenzEntity konferenzEntity = new KonferenzEntity();
+		konferenzEntity.updateFrom(konferenz);
+		konferenzDao.persist(konferenzEntity);
+		return konferenzEntity.toDto();
+	}
+
 	public void setKonferenzDao(KonferenzDao konferenzDao) {
 		this.konferenzDao = konferenzDao;
 	}

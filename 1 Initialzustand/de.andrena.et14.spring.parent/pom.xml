@@ -11,6 +11,7 @@
 		<spring-data.version>1.5.1.RELEASE</spring-data.version>
 		<jetty.version>9.1.4.v20140401</jetty.version>
 		<slf4j.version>1.7.7</slf4j.version>
+		<joda-time.version>2.3</joda-time.version>
 	</properties>
 	<build>
 		<plugins>
@@ -60,6 +61,11 @@
 		<module>../de.andrena.et14.spring.persistenz</module>
 	</modules>
 	<dependencies>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>${joda-time.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
