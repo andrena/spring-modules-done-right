@@ -23,13 +23,13 @@ import de.andrena.et14.spring.vortrag.VortragEntity;
 @ContextConfiguration(locations = { "/META-INF/spring-daotest-vortrag-config.xml" })
 @Transactional
 public class VortragDaoTest {
-	
+
 	@PersistenceContext
 	private EntityManager entityManager;
-	
+
 	@Inject
 	private KonferenzDao konferenzDao;
-	
+
 	@Inject
 	private VortragDao vortragDao;
 
@@ -47,7 +47,6 @@ public class VortragDaoTest {
 		VortragEntity persistedVortrag = vortragDao.findById(vortrag.getId());
 		assertThat(persistedVortrag, is(notNullValue()));
 		assertThat(persistedVortrag.getKonferenz(), is(notNullValue()));
-		assertThat(persistedVortrag.getKonferenz().getId(),
-				is(konferenz.getId()));
+		assertThat(persistedVortrag.getKonferenz().getId(), is(konferenz.getId()));
 	}
 }

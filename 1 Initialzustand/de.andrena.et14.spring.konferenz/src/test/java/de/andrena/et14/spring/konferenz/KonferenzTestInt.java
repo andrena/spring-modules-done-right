@@ -26,8 +26,7 @@ public class KonferenzTestInt {
 		konferenz.setName("Entwicklertag");
 		konferenz.setOrt("Karlsruhe");
 		konferenz.setDatum(new LocalDate(2014, 5, 21));
-		Konferenz erstellteKonferenz = konferenzClient
-				.erstelleKonferenz(konferenz);
+		Konferenz erstellteKonferenz = konferenzClient.erstelleKonferenz(konferenz);
 
 		List<Konferenz> konferenzen = konferenzClient.ladeAlleKonferenzen();
 		assertThat(konferenzen, hasItem(erstellteKonferenz));

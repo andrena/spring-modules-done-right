@@ -18,8 +18,10 @@ import org.springframework.transaction.annotation.Transactional;
 @ContextConfiguration(locations = { "/META-INF/spring-daotest-konferenz-config.xml" })
 @Transactional
 public class KonferenzDaoTest {
+
 	@PersistenceContext
 	private EntityManager entityManager;
+
 	@Inject
 	private KonferenzDao konferenzDao;
 
@@ -30,8 +32,7 @@ public class KonferenzDaoTest {
 		entityManager.flush();
 		entityManager.clear();
 
-		KonferenzEntity persistedKonferenz = konferenzDao.findById(konferenz
-				.getId());
+		KonferenzEntity persistedKonferenz = konferenzDao.findById(konferenz.getId());
 		assertThat(persistedKonferenz, is(notNullValue()));
 	}
 }

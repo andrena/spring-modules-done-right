@@ -21,8 +21,7 @@ public class VortragDao {
 
 	public List<VortragEntity> findAll() {
 		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<VortragEntity> query = builder
-				.createQuery(VortragEntity.class);
+		CriteriaQuery<VortragEntity> query = builder.createQuery(VortragEntity.class);
 		query.select(query.from(VortragEntity.class));
 
 		return entityManager.createQuery(query).getResultList();

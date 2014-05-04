@@ -22,8 +22,7 @@ public class KonferenzDao {
 
 	public List<KonferenzEntity> loadAll() {
 		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<KonferenzEntity> query = builder
-				.createQuery(KonferenzEntity.class);
+		CriteriaQuery<KonferenzEntity> query = builder.createQuery(KonferenzEntity.class);
 		query.select(query.from(KonferenzEntity.class));
 
 		return entityManager.createQuery(query).getResultList();

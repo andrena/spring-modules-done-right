@@ -20,7 +20,7 @@ public class VortragEntity {
 
 	@Column
 	private String titel;
-	
+
 	public Long getId() {
 		return id;
 	}

@@ -15,8 +15,7 @@ public class VortragService implements IVortragService {
 	@Override
 	public Vortrag erstelleVortrag(Vortrag vortrag) {
 		Konferenz konferenz = vortrag.getKonferenz();
-		KonferenzEntity konferenzEntity = konferenzDao.findById(konferenz
-				.getId());
+		KonferenzEntity konferenzEntity = konferenzDao.findById(konferenz.getId());
 
 		VortragEntity vortragEntity = new VortragEntity();
 		vortragEntity.setKonferenz(konferenzEntity);

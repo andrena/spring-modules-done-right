@@ -51,4 +51,5 @@ public class Vortrag implements Serializable {
 
 	private boolean idEquals(Vortrag other) {
 		return Objects.equals(id, other.id);
-	}}
+	}
+}
