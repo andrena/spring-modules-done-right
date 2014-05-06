@@ -10,7 +10,7 @@
 		<class>de.andrena.et14.spring.konferenz.KonferenzEntity</class>
 
 		<!-- Klassen aus Vortrag -->
-		<class>de.andrena.et14.spring.vortraege.VortragEntity</class>
+		<class>de.andrena.et14.spring.vortrag.VortragEntity</class>
 
 	</persistence-unit>
 

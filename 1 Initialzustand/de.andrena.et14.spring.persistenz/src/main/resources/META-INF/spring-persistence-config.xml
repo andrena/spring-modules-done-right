@@ -15,17 +15,7 @@
 
 	<bean id="persistenceUnitManager"
 		class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
-		<property name="persistenceXmlLocations">
-			<list>
-				<value>classpath*:META-INF/persistence.xml</value>
-			</list>
-		</property>
 		<property name="defaultDataSource" ref="dataSource"></property>
-		<property name="persistenceUnitPostProcessors">
-			<bean class="org.springframework.data.jpa.support.ClasspathScanningPersistenceUnitPostProcessor">
-				<constructor-arg name="basePackage" value="de.andrena" />
-			</bean>
-		</property>
 	</bean>
 
 	<bean id="entityManagerFactory"
