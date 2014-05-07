@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<import resource="classpath:/META-INF/spring-konferenz-dao-config.xml" />
+
+	<bean name="konferenzService" class="de.andrena.et14.spring.konferenz.KonferenzService">
+		<property name="konferenzDao" ref="konferenzDao" />
+		
+		<!-- Bean-Ref aus Vortrag -->		
+		<property name="listener" ref="vortragKonferenzListener" />
+
+	</bean>
+
+</beans>
