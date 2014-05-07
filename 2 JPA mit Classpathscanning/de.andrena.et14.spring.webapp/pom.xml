@@ -17,4 +17,20 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>de.andrena.et14.spring</groupId>
+			<artifactId>de.andrena.et14.spring.persistenz</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.andrena.et14.spring</groupId>
+			<artifactId>de.andrena.et14.spring.konferenz</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.andrena.et14.spring</groupId>
+			<artifactId>de.andrena.et14.spring.vortrag</artifactId>
+		</dependency>
+	</dependencies>
+
 </project>
