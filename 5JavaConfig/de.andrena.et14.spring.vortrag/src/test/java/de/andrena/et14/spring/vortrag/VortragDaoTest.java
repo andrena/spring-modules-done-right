@@ -16,11 +16,15 @@ import org.springframework.transaction.annotation.Transactional;
 
 import de.andrena.et14.spring.konferenz.KonferenzDao;
 import de.andrena.et14.spring.konferenz.KonferenzEntity;
+import de.andrena.et14.spring.konferenz.springconfig.KonferenzDaoSpringConfig;
 import de.andrena.et14.spring.vortrag.VortragDao;
 import de.andrena.et14.spring.vortrag.VortragEntity;
+import de.andrena.et14.spring.vortrag.springconfig.VortragDaoSpringConfig;
+import de.andrena.persistenz.springconfig.PersistenzSpringConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/META-INF/spring-daotest-vortrag-config.xml" })
+@ContextConfiguration(classes = { PersistenzSpringConfig.class, VortragDaoSpringConfig.class,
+		KonferenzDaoSpringConfig.class })
 @Transactional
 public class VortragDaoTest {
 

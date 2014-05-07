@@ -17,7 +17,7 @@ import de.andrena.et14.spring.konferenz.IKonferenzService;
 import de.andrena.et14.spring.konferenz.Konferenz;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/META-INF/spring-testint-vortrag-config.xml" })
+@ContextConfiguration(classes = VortragTestIntSpringConfig.class)
 public class VortragTestInt {
 
 	@Inject
