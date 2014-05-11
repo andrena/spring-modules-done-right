@@ -7,10 +7,13 @@
 
 	<bean name="konferenzService" class="de.andrena.et14.spring.konferenz.KonferenzService">
 		<property name="konferenzDao" ref="konferenzDao" />
-		
-		<!-- Bean-Ref aus Vortrag -->		
-		<property name="listener" ref="vortragKonferenzListener" />
 
+		<property name="listeners">
+			<list>
+				<!-- Bean-Ref aus Vortrag -->
+				<ref bean="vortragKonferenzListener" />
+			</list>
+		</property>
 	</bean>
 
 </beans>
