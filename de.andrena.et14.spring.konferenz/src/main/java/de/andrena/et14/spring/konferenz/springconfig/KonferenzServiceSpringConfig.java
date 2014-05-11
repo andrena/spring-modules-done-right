@@ -1,6 +1,6 @@
 package de.andrena.et14.spring.konferenz.springconfig;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -15,14 +15,14 @@ public class KonferenzServiceSpringConfig {
 
 	@Autowired
 	private KonferenzDaoSpringConfig konferenzDaoSpringConfig;
+	@Autowired(required = false)
+	private List<KonferenzListener> konferenzListeners;
 
 	@Bean
 	public IKonferenzService konferenzService() {
 		KonferenzService konferenzService = new KonferenzService();
 		konferenzService.setKonferenzDao(konferenzDaoSpringConfig.konferenzDao());
-		ArrayList<KonferenzListener> listeners = new ArrayList<>();
-		// TODO
-		konferenzService.setListeners(listeners);
+		konferenzService.setListeners(konferenzListeners);
 		return konferenzService;
 	}
 }
