@@ -23,7 +23,7 @@
 		<property name="defaultDataSource" ref="dataSource"></property>
 		<property name="persistenceUnitPostProcessors">
 			<bean class="de.andrena.et14.spring.persistenz.CustomClasspathScanningPersistenceUnitPostProcessor">
-				<property name="basePackage" value="de.andrena" />
+				<property name="basePackage" value="de.andrena.et14.spring" />
 			</bean>
 		</property>
 	</bean>
