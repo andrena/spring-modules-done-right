@@ -44,7 +44,7 @@ public class PersistenzSpringConfig {
 		persistenceUnitManager.setPersistenceXmlLocation("classpath:META-INF/persistence.xml");
 		persistenceUnitManager.setDefaultDataSource(dataSource());
 		CustomClasspathScanningPersistenceUnitPostProcessor persistenceUnitPostProcessor = new CustomClasspathScanningPersistenceUnitPostProcessor();
-		persistenceUnitPostProcessor.setBasePackage("de.andrena");
+		persistenceUnitPostProcessor.setBasePackage("de.andrena.et14.spring");
 		persistenceUnitManager.setPersistenceUnitPostProcessors(persistenceUnitPostProcessor);
 		return persistenceUnitManager;
 	}
