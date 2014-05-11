@@ -1,4 +1,4 @@
-package de.andrena.persistenz;
+package de.andrena.et14.spring.persistenz;
 
 import java.util.HashSet;
 import java.util.Set;

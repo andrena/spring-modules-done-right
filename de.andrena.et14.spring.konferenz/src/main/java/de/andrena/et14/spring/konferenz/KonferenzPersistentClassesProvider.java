@@ -1,6 +1,6 @@
 package de.andrena.et14.spring.konferenz;
 
-import de.andrena.persistenz.PersistentClassesProvider;
+import de.andrena.et14.spring.persistenz.PersistentClassesProvider;
 
 public class KonferenzPersistentClassesProvider implements
 		PersistentClassesProvider {
