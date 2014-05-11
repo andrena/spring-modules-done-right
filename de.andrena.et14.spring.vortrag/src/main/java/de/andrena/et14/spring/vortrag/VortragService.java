@@ -27,12 +27,20 @@ public class VortragService implements IVortragService {
 
 	@Override
 	public List<Vortrag> ladeAlleVortraege(Konferenz konferenz) {
-		List<VortragEntity> entities = vortragDao.findAll();
+		List<VortragEntity> entities = vortragDao.findAllForKonferenzId(konferenz.getId());
 		List<Vortrag> result = new ArrayList<>();
 		for (VortragEntity vortragEntity : entities) {
 			result.add(vortragEntity.toDto());
 		}
 		return result;
+	}
+
+	@Override
+	public void informiereVortragende(Konferenz konferenz) {
+		for (VortragEntity vortragEntity : vortragDao.findAllForKonferenzId(konferenz.getId())) {
+			System.out.println("Sende EMail an alle Referenten von " + vortragEntity.getTitel());
+			vortragEntity.updateLastInformedVortragende();
+		}
 	}
 
 	public void setVortragDao(VortragDao vortragDao) {

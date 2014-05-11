@@ -6,7 +6,7 @@ import java.util.List;
 public class KonferenzService implements IKonferenzService {
 
 	private KonferenzDao konferenzDao;
-	private KonferenzListener listener;
+	private List<KonferenzListener> listeners;
 
 	@Override
 	public List<Konferenz> ladeAlleKonferenzen() {
@@ -32,14 +32,20 @@ public class KonferenzService implements IKonferenzService {
 		KonferenzEntity konferenzEntity = konferenzDao.findById(id);
 		konferenzEntity.updateFrom(konferenz);
 		konferenzDao.persist(konferenzEntity);
-		listener.konferenzGeaendert(konferenz);
+		informListeners(konferenz);
+	}
+
+	private void informListeners(Konferenz konferenz) {
+		for (KonferenzListener konferenzListener : listeners) {
+			konferenzListener.konferenzGeaendert(konferenz);
+		}
 	}
 
 	public void setKonferenzDao(KonferenzDao konferenzDao) {
 		this.konferenzDao = konferenzDao;
 	}
 
-	public void setListener(KonferenzListener listener) {
-		this.listener = listener;
+	public void setListeners(List<KonferenzListener> listeners) {
+		this.listeners = listeners;
 	}
 }

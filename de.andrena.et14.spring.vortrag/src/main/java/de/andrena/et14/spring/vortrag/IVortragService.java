@@ -14,4 +14,7 @@ public interface IVortragService {
 	@Transactional
 	List<Vortrag> ladeAlleVortraege(Konferenz konferenz);
 
+	@Transactional
+	void informiereVortragende(Konferenz konferenz);
+
 }

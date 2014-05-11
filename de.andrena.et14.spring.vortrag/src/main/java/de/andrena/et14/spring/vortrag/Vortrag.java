@@ -3,6 +3,8 @@ package de.andrena.et14.spring.vortrag;
 import java.io.Serializable;
 import java.util.Objects;
 
+import org.joda.time.DateTime;
+
 import de.andrena.et14.spring.konferenz.Konferenz;
 
 public class Vortrag implements Serializable {
@@ -13,6 +15,8 @@ public class Vortrag implements Serializable {
 	private final Konferenz konferenz;
 
 	private String titel;
+
+	private DateTime lastInformedVortragende;
 
 	public Vortrag(Konferenz konferenz) {
 		this(null, konferenz);
@@ -37,6 +41,14 @@ public class Vortrag implements Serializable {
 
 	public void setTitel(String titel) {
 		this.titel = titel;
+	}
+
+	public void setLastInformedVortragende(DateTime lastInformedVortragende) {
+		this.lastInformedVortragende = lastInformedVortragende;
+	}
+
+	public DateTime getLastInformedVortragende() {
+		return lastInformedVortragende;
 	}
 
 	@Override
