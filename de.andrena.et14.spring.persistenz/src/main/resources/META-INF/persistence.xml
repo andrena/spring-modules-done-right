@@ -5,13 +5,6 @@
 	version="2.0">
 
 	<persistence-unit name="default">
-
-		<!-- Klassen aus Konferenz -->
-		<class>de.andrena.et14.spring.konferenz.KonferenzEntity</class>
-
-		<!-- Klassen aus Vortrag -->
-		<class>de.andrena.et14.spring.vortrag.VortragEntity</class>
-
 	</persistence-unit>
 
-</persistence>
+</persistence>          
