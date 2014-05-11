@@ -15,7 +15,6 @@ public class VortragServiceSpringConfig {
 
 	@Autowired
 	private VortragDaoSpringConfig vortragDaoSpringConfig;
-
 	@Autowired
 	private KonferenzDaoSpringConfig konferenzDaoSpringConfig;
 
@@ -29,6 +28,8 @@ public class VortragServiceSpringConfig {
 
 	@Bean
 	public KonferenzListener benachrichtigeReferentenBeiKonferenzAenderung() {
-		return new BenachrichtigeReferentenBeiKonferenzAenderung();
+		BenachrichtigeReferentenBeiKonferenzAenderung benachrichtigeReferentenBeiKonferenzAenderung = new BenachrichtigeReferentenBeiKonferenzAenderung();
+		benachrichtigeReferentenBeiKonferenzAenderung.setVortragService(vortragService());
+		return benachrichtigeReferentenBeiKonferenzAenderung;
 	}
 }
