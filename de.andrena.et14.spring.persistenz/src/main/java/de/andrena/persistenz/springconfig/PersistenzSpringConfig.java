@@ -15,7 +15,7 @@ import org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcesso
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import de.andrena.persistenz.CustomClasspathScanningPersistenceUnitPostProcessor;
+import de.andrena.et14.spring.persistenz.CustomClasspathScanningPersistenceUnitPostProcessor;
 
 @Configuration
 @EnableTransactionManagement
