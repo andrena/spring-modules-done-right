@@ -1,4 +1,4 @@
-package de.andrena.persistenz.springconfig;
+package de.andrena.et14.spring.persistenz.springconfig;
 
 import static java.util.Collections.singletonMap;
 import static org.hibernate.cfg.AvailableSettings.HBM2DDL_AUTO;

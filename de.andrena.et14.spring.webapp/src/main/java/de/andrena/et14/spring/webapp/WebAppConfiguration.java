@@ -4,8 +4,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-// TODO de.andrena.et14.spring.*.springconfig
-@ComponentScan("de.andrena.*.springconfig")
+@ComponentScan("de.andrena.et14.spring.*.springconfig")
 public class WebAppConfiguration {
 
 }

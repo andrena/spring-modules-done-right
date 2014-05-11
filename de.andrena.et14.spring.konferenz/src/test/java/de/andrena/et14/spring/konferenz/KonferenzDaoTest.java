@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import de.andrena.et14.spring.konferenz.springconfig.KonferenzDaoSpringConfig;
-import de.andrena.persistenz.springconfig.PersistenzSpringConfig;
+import de.andrena.et14.spring.persistenz.springconfig.PersistenzSpringConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { PersistenzSpringConfig.class, KonferenzDaoSpringConfig.class })
