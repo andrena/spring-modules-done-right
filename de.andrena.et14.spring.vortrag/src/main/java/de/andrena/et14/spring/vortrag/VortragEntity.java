@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.Type;
+import org.joda.time.DateTime;
+
 import de.andrena.et14.spring.konferenz.KonferenzEntity;
 
 @Entity
@@ -21,6 +24,10 @@ public class VortragEntity {
 	@Column
 	private String titel;
 
+	@Column
+	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+	private DateTime lastInformedVortragende = DateTime.now();
+
 	public Long getId() {
 		return id;
 	}
@@ -33,6 +40,18 @@ public class VortragEntity {
 		return konferenz;
 	}
 
+	public String getTitel() {
+		return titel;
+	}
+
+	public void updateLastInformedVortragende() {
+		this.lastInformedVortragende = DateTime.now();
+	}
+
+	public DateTime getLastInformedVortragende() {
+		return lastInformedVortragende;
+	}
+
 	public void updateFrom(Vortrag vortrag) {
 		titel = vortrag.getTitel();
 	}
@@ -40,6 +59,7 @@ public class VortragEntity {
 	public Vortrag toDto() {
 		Vortrag vortrag = new Vortrag(id, konferenz.toDto());
 		vortrag.setTitel(titel);
+		vortrag.setLastInformedVortragende(lastInformedVortragende);
 		return vortrag;
 	}
 }

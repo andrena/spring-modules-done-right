@@ -4,10 +4,13 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -39,12 +42,9 @@ public class VortragDaoTest {
 
 	@Test
 	public void vortragLaesstSichPersistieren() {
-		KonferenzEntity konferenz = new KonferenzEntity();
-		konferenzDao.persist(konferenz);
+		KonferenzEntity konferenz = createKonferenz();
 
-		VortragEntity vortrag = new VortragEntity();
-		vortrag.setKonferenz(konferenz);
-		vortragDao.persist(vortrag);
+		VortragEntity vortrag = createVortragForKonferenz(konferenz);
 		entityManager.flush();
 		entityManager.clear();
 
@@ -52,5 +52,30 @@ public class VortragDaoTest {
 		assertThat(persistedVortrag, is(notNullValue()));
 		assertThat(persistedVortrag.getKonferenz(), is(notNullValue()));
 		assertThat(persistedVortrag.getKonferenz().getId(), is(konferenz.getId()));
+	}
+
+	private KonferenzEntity createKonferenz() {
+		KonferenzEntity konferenz = new KonferenzEntity();
+		konferenzDao.persist(konferenz);
+		return konferenz;
+	}
+
+	private VortragEntity createVortragForKonferenz(KonferenzEntity konferenz) {
+		VortragEntity vortrag = new VortragEntity();
+		vortrag.setKonferenz(konferenz);
+		vortragDao.persist(vortrag);
+		return vortrag;
+	}
+
+	@Test
+	public void vortraegeLassenSichZuEinerSpezifischenKonferenzFinden() {
+		KonferenzEntity eineKonferenz = createKonferenz();
+		VortragEntity vortragZuEinerKonferenz = createVortragForKonferenz(eineKonferenz);
+		KonferenzEntity andereKonferenz = createKonferenz();
+		createVortragForKonferenz(andereKonferenz);
+
+		List<VortragEntity> gefundeneVortraege = vortragDao.findAllForKonferenzId(eineKonferenz
+				.getId());
+		assertThat(gefundeneVortraege, Matchers.contains(vortragZuEinerKonferenz));
 	}
 }
