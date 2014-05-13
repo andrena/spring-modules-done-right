@@ -5,13 +5,13 @@
 	
 	<bean id="konferenzClient"
 		class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
-		<property name="serviceUrl" value="http://localhost:8080/remoting/KonferenzService" />
+		<property name="serviceUrl" value="http://localhost:8080/remoting/IKonferenzService-httpinvoker" />
 		<property name="serviceInterface" value="de.andrena.et14.spring.konferenz.IKonferenzService" />
 	</bean>
 	
 	<bean id="vortragClient"
 		class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
-		<property name="serviceUrl" value="http://localhost:8080/remoting/VortragService" />
+		<property name="serviceUrl" value="http://localhost:8080/remoting/IVortragService-httpinvoker" />
 		<property name="serviceInterface" value="de.andrena.et14.spring.vortrag.IVortragService" />
 	</bean>
 
