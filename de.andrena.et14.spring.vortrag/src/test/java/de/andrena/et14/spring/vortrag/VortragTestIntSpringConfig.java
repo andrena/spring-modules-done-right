@@ -12,13 +12,13 @@ public class VortragTestIntSpringConfig {
 	@Bean
 	public HttpInvokerProxyFactoryBean konferenzClient() {
 		return createHttpInvokerClient(IKonferenzService.class,
-				"http://localhost:8080/remoting/KonferenzService");
+				"http://localhost:8080/remoting/IKonferenzService-httpinvoker");
 	}
 
 	@Bean
 	public HttpInvokerProxyFactoryBean vortragClient() {
 		return createHttpInvokerClient(IVortragService.class,
-				"http://localhost:8080/remoting/VortragService");
+				"http://localhost:8080/remoting/IVortragService-httpinvoker");
 	}
 
 	private HttpInvokerProxyFactoryBean createHttpInvokerClient(Class<?> serviceInterface,

@@ -4,7 +4,9 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-public interface IKonferenzService {
+import de.andrena.et14.spring.common.HttpInvoker;
+
+public interface IKonferenzService extends HttpInvoker {
 
 	@Transactional
 	List<Konferenz> ladeAlleKonferenzen();
