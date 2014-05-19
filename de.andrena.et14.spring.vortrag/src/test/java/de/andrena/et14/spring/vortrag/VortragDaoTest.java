@@ -21,8 +21,6 @@ import de.andrena.et14.spring.konferenz.KonferenzDao;
 import de.andrena.et14.spring.konferenz.KonferenzEntity;
 import de.andrena.et14.spring.konferenz.springconfig.KonferenzDaoSpringConfig;
 import de.andrena.et14.spring.persistenz.springconfig.PersistenzSpringConfig;
-import de.andrena.et14.spring.vortrag.VortragDao;
-import de.andrena.et14.spring.vortrag.VortragEntity;
 import de.andrena.et14.spring.vortrag.springconfig.VortragDaoSpringConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
