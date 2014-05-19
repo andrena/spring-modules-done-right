@@ -28,11 +28,9 @@ public class CustomClasspathScanningPersistenceUnitPostProcessor implements
 	private Iterable<PersistentClassesProvider> findPersistentClassesProviders() {
 		ClassPathScanningCandidateComponentProvider scanner = new ClassPathScanningCandidateComponentProvider(
 				false);
-		scanner.addIncludeFilter(new AssignableTypeFilter(
-				PersistentClassesProvider.class));
+		scanner.addIncludeFilter(new AssignableTypeFilter(PersistentClassesProvider.class));
 
-		Set<BeanDefinition> providerDefinitions = scanner
-				.findCandidateComponents(basePackage);
+		Set<BeanDefinition> providerDefinitions = scanner.findCandidateComponents(basePackage);
 		return instantiateProviders(providerDefinitions);
 	}
 
@@ -41,19 +39,16 @@ public class CustomClasspathScanningPersistenceUnitPostProcessor implements
 		Set<PersistentClassesProvider> result = new HashSet<>();
 		for (BeanDefinition beanDefinition : providerDefinitions) {
 			try {
-				Class<?> providerClass = Class.forName(beanDefinition
-						.getBeanClassName());
-				result.add((PersistentClassesProvider) providerClass
-						.newInstance());
+				Class<?> providerClass = Class.forName(beanDefinition.getBeanClassName());
+				result.add((PersistentClassesProvider) providerClass.newInstance());
 			} catch (Exception e) {
-				throw new BeanInitializationException(
-						"Persistence Unit could not be built: "
-								+ beanDefinition.getBeanClassName(), e);
+				throw new BeanInitializationException("Persistence Unit could not be built: "
+						+ beanDefinition.getBeanClassName(), e);
 			}
 		}
 		return result;
 	}
-	
+
 	@Required
 	public void setBasePackage(String basePackage) {
 		this.basePackage = basePackage;
