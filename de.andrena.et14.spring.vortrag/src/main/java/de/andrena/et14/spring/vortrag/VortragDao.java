@@ -36,8 +36,7 @@ public class VortragDao {
 		return entityManager.createQuery(query).getResultList();
 	}
 
-	private Predicate konferenzIdEquals(Root<VortragEntity> vortragRoot,
-			long konferenzId) {
+	private Predicate konferenzIdEquals(Root<VortragEntity> vortragRoot, long konferenzId) {
 		return criteriaBuilder().equal(vortragRoot.get("konferenz").get("id"), konferenzId);
 	}
 
