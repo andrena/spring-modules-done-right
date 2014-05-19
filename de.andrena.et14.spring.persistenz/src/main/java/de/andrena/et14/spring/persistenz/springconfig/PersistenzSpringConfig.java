@@ -7,10 +7,10 @@ import org.h2.Driver;
 import org.hibernate.dialect.H2Dialect;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.support.MergingPersistenceUnitManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager;
 import org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -39,9 +39,9 @@ public class PersistenzSpringConfig {
 	}
 
 	@Bean
-	public MergingPersistenceUnitManager persistenceUnitManager() {
-		MergingPersistenceUnitManager persistenceUnitManager = new MergingPersistenceUnitManager();
-		persistenceUnitManager.setPersistenceXmlLocation("classpath:META-INF/persistence.xml");
+	public DefaultPersistenceUnitManager persistenceUnitManager() {
+		DefaultPersistenceUnitManager persistenceUnitManager = new DefaultPersistenceUnitManager();
+		persistenceUnitManager.setPackagesToScan();
 		persistenceUnitManager.setDefaultDataSource(dataSource());
 		CustomClasspathScanningPersistenceUnitPostProcessor persistenceUnitPostProcessor = new CustomClasspathScanningPersistenceUnitPostProcessor();
 		persistenceUnitPostProcessor.setBasePackage("de.andrena.et14.spring");
