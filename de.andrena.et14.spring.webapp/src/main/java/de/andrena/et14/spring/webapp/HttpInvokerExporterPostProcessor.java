@@ -22,7 +22,8 @@ public class HttpInvokerExporterPostProcessor implements InitializingBean, Appli
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		Collection<HttpInvoker> httpInvokerBeans = applicationContext.getBeansOfType(HttpInvoker.class).values();
+		Collection<HttpInvoker> httpInvokerBeans = applicationContext.getBeansOfType(
+				HttpInvoker.class).values();
 		for (HttpInvoker fassade : httpInvokerBeans) {
 			Class<?> fassadeInterface = findeFassadenInterface(fassade.getClass());
 
@@ -58,7 +59,7 @@ public class HttpInvokerExporterPostProcessor implements InitializingBean, Appli
 			}
 		}
 
-		throw new RuntimeException("Es konnte keine Facade für " + fassadenKlasse.getName()
+		throw new RuntimeException("Es konnte keine Facade fÃ¼r " + fassadenKlasse.getName()
 				+ " erstellt werden. Die ServiceFacade muss genau ein Interface implementieren.");
 	}
 
