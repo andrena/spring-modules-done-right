@@ -15,6 +15,7 @@ public class KonferenzServiceSpringConfig {
 
 	@Autowired
 	private KonferenzDaoSpringConfig konferenzDaoSpringConfig;
+
 	@Autowired(required = false)
 	private List<KonferenzListener> konferenzListeners;
 
